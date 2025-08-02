@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | ExploreNepal</title>
+    <style>
+      :root {
+        --primary-blue: #1a73e8;
+        --secondary-blue: #4285f4;
+        --light-blue: #e8f0fe;
+        --accent-blue: #8ab4f8;
+        --dark-blue: #0d47a1;
+        --text-dark: #202124;
+        --text-medium: #5f6368;
+        --text-light: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f8f9fa;
+        color: var(--text-dark);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        background-image: radial-gradient(
+          circle at 10% 20%,
+          rgba(66, 133, 244, 0.1) 0%,
+          rgba(66, 133, 244, 0.05) 90%
+        );
+      }
+
+      .about-container {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        max-width: 1000px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .about-image {
+        background: linear-gradient(
+          135deg,
+          var(--secondary-blue),
+          var(--primary-blue)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about-image::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.2) 0%,
+          transparent 70%
+        );
+        transform: rotate(30deg);
+        animation: shimmer 8s infinite linear;
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: rotate(30deg) translate(-10%, -10%);
+        }
+        100% {
+          transform: rotate(30deg) translate(10%, 10%);
+        }
+      }
+
+      .about-image svg {
+        width: 80%;
+        height: auto;
+        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+        z-index: 1;
+      }
+
+      .about-content {
+        padding: 3rem;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--primary-blue);
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: var(--accent-blue);
+        border-radius: 2px;
+      }
+
+      .about-text {
+        margin-bottom: 2rem;
+        color: var(--text-medium);
+      }
+
+      .about-features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .feature-card {
+        background: var(--light-blue);
+        padding: 1.2rem;
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(26, 115, 232, 0.15);
+      }
+
+      .feature-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--primary-blue);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+
+      .feature-icon svg {
+        width: 20px;
+        height: 20px;
+        fill: white;
+      }
+
+      .feature-title {
+        font-weight: 600;
+        color: var(--primary-blue);
+        margin-bottom: 0.5rem;
+      }
+
+      .feature-text {
+        font-size: 0.9rem;
+        color: var(--text-medium);
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: var(--primary-blue);
+        color: white;
+        padding: 0.8rem 1.8rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 500;
+        margin-top: 1.5rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(26, 115, 232, 0.3);
+      }
+
+      .cta-button:hover {
+        background: var(--dark-blue);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(26, 115, 232, 0.4);
+      }
+
+      @media (max-width: 768px) {
+        .about-container {
+          grid-template-columns: 1fr;
+        }
+
+        .about-image {
+          height: 200px;
+          padding: 1rem;
+        }
+
+        .about-content {
+          padding: 2rem;
+        }
+
+        .about-features {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 1rem;
+        }
+
+        .about-content {
+          padding: 1.5rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="about-container">
+      <div class="about-image">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"
+          ></path>
+          <path d="M18 3h3v3"></path>
+          <path d="M18.5 9.5l-5-5"></path>
+          <path d="M12 3h6"></path>
+          <path d="M3 12h6"></path>
+          <path d="M3 18h6"></path>
+          <path d="M3 6h6"></path>
+        </svg>
+      </div>
+      <div class="about-content">
+        <h1 class="section-title">About ExploreNepal</h1>
+        <p class="about-text">
+          Welcome to ExploreNepal, your premier guide to discovering the
+          majestic beauty and rich cultural heritage of Nepal. We are dedicated
+          to creating unforgettable travel experiences that connect you with the
+          heart and soul of this Himalayan wonderland.
+        </p>
+        <p class="about-text">
+          Our team of local experts and travel enthusiasts is committed to
+          showcasing Nepal's breathtaking landscapes, from the towering peaks of
+          the Himalayas to the lush jungles of the Terai, while supporting
+          sustainable tourism practices.
+        </p>
+
+        <div class="about-features">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 2L4 7v10l8 5 8-5V7L12 2z"></path>
+                <path d="M12 22V12"></path>
+                <path d="M9 10l3 3 3-3"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Local Expertise</h3>
+            <p class="feature-text">
+              Our team consists of Nepal natives with deep knowledge of hidden
+              gems.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Sustainable Travel</h3>
+            <p class="feature-text">
+              We prioritize eco-friendly practices and support local
+              communities.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 8v4l3 3"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Tailored Itineraries</h3>
+            <p class="feature-text">
+              Customized trips designed to match your interests and pace.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"
+                ></path>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">24/7 Support</h3>
+            <p class="feature-text">
+              Round-the-clock assistance throughout your journey in Nepal.
+            </p>
+          </div>
+        </div>
+
+        <a href="#" class="cta-button">Start Your Adventure</a>
+      </div>
+    </div>
+  </body>
+</html>
