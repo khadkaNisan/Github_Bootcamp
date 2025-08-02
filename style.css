@@ -233,3 +233,19 @@ textarea.form-control {
     font-size: 2rem;
   }
 }
+
+img {
+  width: 40px; /* Perfect size for visibility */
+  height: 40px; /* Maintain aspect ratio */
+  border-radius: 50%; /* Circular shape */
+  object-fit: cover; /* Ensures images aren't distorted */
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+  padding: 2px; /* Gives the logo some breathing space */
+  background: rgba(255, 255, 255, 0.1); /* Light background */
+}
+img:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-color: var(--highlight); /* Use your accent color */
+}
